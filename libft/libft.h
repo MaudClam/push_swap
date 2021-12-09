@@ -36,6 +36,7 @@ void	ft_bzero(void *s, size_t n);
 int		ft_error_msg(char *str, int err);
 int		ft_error_exit(char *str, int err);
 int		ft_error_exit2(char *str1, char *str2, int err);
+int		ft_simple_errexit(char *str);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);

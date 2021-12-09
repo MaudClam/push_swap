@@ -39,3 +39,11 @@ int	ft_error_exit2(char *str1, char *str2, int err)
 	lc(FREE_ALL);
 	exit (err);
 }
+
+int	ft_simple_errexit(char *str)
+{
+	ft_putendl_fd(str, STDERR_FILENO);
+	lc(FREE_ALL);
+	errno = 255;
+	exit (255);
+}
