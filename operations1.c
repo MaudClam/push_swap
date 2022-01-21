@@ -25,7 +25,9 @@ void	ra(t_var *var)
 		var->a = var->a->next;
 		tmp->next->next = NULL;
 	}
-	write(1, "ra\n", 3);
+	var->counter++;
+	if (var->operation == SORTING)
+		write(STDOUT_FILENO, "ra\n", 3);
 }
 
 void	rb(t_var *var)
@@ -41,12 +43,16 @@ void	rb(t_var *var)
 		var->b = var->b->next;
 		tmp->next->next = NULL;
 	}
-	write(1, "rb\n", 3);
+	var->counter++;
+	if (var->operation == SORTING)
+		write(STDOUT_FILENO, "rb\n", 3);
 }
 
 void	rr(t_var *var)
 {
 	ra(var);
 	rb(var);
-	write(1, "rr\n", 3);
+	var->counter++;
+	if (var->operation == SORTING)
+		write(STDOUT_FILENO, "rr\n", 3);
 }

@@ -25,14 +25,16 @@ void	rra(t_var *var)
 		var->a = tmp->next;
 		tmp->next = NULL;
 	}
-	write(1, "rra\n", 4);
+	var->counter++;
+	if (var->operation == SORTING)
+		write(STDOUT_FILENO, "rra\n", 4);
 }
 
 void	rrb(t_var *var)
 {
 	t_stack	*tmp;
 
-	if (var->a != NULL && var->a->next != NULL)
+	if (var->b != NULL && var->b->next != NULL)
 	{
 		tmp = var->b;
 		while (tmp->next->next != NULL)
@@ -41,12 +43,16 @@ void	rrb(t_var *var)
 		var->b = tmp->next;
 		tmp->next = NULL;
 	}
-	write(1, "rrb\n", 4);
+	var->counter++;
+	if (var->operation == SORTING)
+		write(STDOUT_FILENO, "rrb\n", 4);
 }
 
 void	rrr(t_var *var)
 {
 	rra(var);
 	rrb(var);
-	write(1, "rrr\n", 4);
+	var->counter++;
+	if (var->operation == SORTING)
+		write(STDOUT_FILENO, "rrr\n", 4);
 }

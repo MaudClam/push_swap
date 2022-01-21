@@ -42,7 +42,7 @@ void	build_tree(t_var *var)
 	t_stack	*tmp;
 	
 	tmp = var->a;
-	while (tmp != NULL && tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		var->root = add_node_recursive(var->root, tmp);
 		tmp = tmp->next;
@@ -54,8 +54,7 @@ static void	indexing_a_recursive(t_tree	*node, size_t *index)
 	if (node != NULL)
 	{
 		indexing_a_recursive(node->left, index);
-		node->element->index = *index;
-		(*index)++;
+		node->element->index = (*index)++;
 		indexing_a_recursive(node->right, index);
 	}
 }

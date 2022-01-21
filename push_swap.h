@@ -13,14 +13,40 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>//FIXME
+# ifndef DEBAG_MODE
+#  define DEBAG_MODE TRUE
+# endif
+
+# ifndef SORTING_MODE
+#  define SORTING_MODE ASCNDNG
+# endif
+
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
 
+typedef enum e_sorting	t_sorting;
 typedef struct s_stack	t_stack;
 typedef struct s_tree	t_tree;
 typedef struct s_var	t_var;
+
+enum e_sorting
+{
+	TESTING,
+	SORTING,
+	ASCNDNG,
+	DSCNDNG,
+};
+
+struct s_var
+{
+	int			counter;
+	size_t		n;
+	t_stack		*a;
+	t_stack		*b;
+	t_tree		*root;
+	t_sorting	operation;
+};
 
 struct s_stack
 {
@@ -36,13 +62,6 @@ struct s_tree
 	t_tree	*right;
 };
 
-struct s_var
-{
-	int		n;
-	t_stack	*a;
-	t_stack	*b;
-	t_tree	*root;
-};
 /*
 ** 		indexing_a.c
 */
@@ -69,8 +88,23 @@ void	rra(t_var *var);
 void	rrb(t_var *var);
 void	rrr(t_var *var);
 /*
+** 		sorting.c
+*/
+int		bubble_sorting_a(t_var *var, size_t a_size, t_sorting mode);
+int		bubble_sorting_b(t_var *var, size_t b_size, t_sorting mode);
+int		bubble_2stack_sorting(t_var *var, size_t s_size, t_sorting mode);
+/*
+** 		sorting1.c
+*/
+int		special6_sorting_a(t_var *var, t_sorting mode);
+int		special6_sorting_b(t_var *var, t_sorting mode);
+void	find_index_put_to_stackb(t_var *var, size_t *a_size, size_t index);
+int		stackb_fill_sorting(t_var *var, size_t s_size, t_sorting mode);
+/*
 ** 		utils.c
 */
-void	swap(t_stack **a, t_stack **b);
+int		is_sorted(t_stack *s, t_sorting mode);
+void	print_stacks(t_var *var);
+void	print_info(t_var *var, int test1, int test2, int test3);
 
 #endif
