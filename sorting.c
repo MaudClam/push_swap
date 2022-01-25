@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	bubble_sorting_a(t_var *var, size_t a_size, t_sorting mode)
+int	bubble_sorting_a(t_var *var, size_t a_size, t_sort mode)
 {
 	size_t	i;
 	
@@ -38,7 +38,7 @@ int	bubble_sorting_a(t_var *var, size_t a_size, t_sorting mode)
 	return (var->counter);
 }
 
-int	bubble_sorting_b(t_var *var, size_t b_size, t_sorting mode)
+static int	bubble_sorting_b(t_var *var, size_t b_size, t_sort mode)
 {
 	size_t	i;
 	
@@ -64,7 +64,7 @@ int	bubble_sorting_b(t_var *var, size_t b_size, t_sorting mode)
 	return (var->counter);
 }
 
-static void	bubble_2stack_sorting_ascndng(t_var *var, size_t s_size)
+static void	bubble_2stacks_sorting_ascndng(t_var *var, size_t s_size)
 {
 	size_t	i;
 	size_t	b_size;
@@ -93,7 +93,7 @@ static void	bubble_2stack_sorting_ascndng(t_var *var, size_t s_size)
 		pa(var);
 }
 
-static void	bubble_2stack_sorting_dscndng(t_var *var, size_t s_size)
+static void	bubble_2stacks_sorting_dscndng(t_var *var, size_t s_size)
 {
 	size_t	i;
 	size_t	b_size;
@@ -122,12 +122,12 @@ static void	bubble_2stack_sorting_dscndng(t_var *var, size_t s_size)
 		pa(var);
 }
 
-int	bubble_2stack_sorting(t_var *var, size_t s_size, t_sorting mode)
+int	bubble_2stacks_sorting(t_var *var, size_t s_size, t_sort mode)
 {
 	if (mode == ASCNDNG)
-		bubble_2stack_sorting_ascndng(var, s_size);
+		bubble_2stacks_sorting_ascndng(var, s_size);
 	else if (mode == DSCNDNG)
-		bubble_2stack_sorting_dscndng(var, s_size);
+		bubble_2stacks_sorting_dscndng(var, s_size);
 	return (var->counter);
 }
 

@@ -46,3 +46,11 @@ U_INT	fiu(char condition, U_INT then, U_INT otherwise_then)
 	else
 		return (otherwise_then);
 }
+
+void	*fiv(char condition, void *then, void *otherwise_then)
+{
+	if (condition)
+		return (then);
+	else
+		return (otherwise_then);
+}

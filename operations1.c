@@ -24,10 +24,10 @@ void	ra(t_var *var)
 		tmp->next = var->a;
 		var->a = var->a->next;
 		tmp->next->next = NULL;
+		var->counter++;
+		if (var->operation == SORTING)
+			write(STDOUT_FILENO, "ra\n", 3);
 	}
-	var->counter++;
-	if (var->operation == SORTING)
-		write(STDOUT_FILENO, "ra\n", 3);
 }
 
 void	rb(t_var *var)
@@ -42,17 +42,37 @@ void	rb(t_var *var)
 		tmp->next = var->b;
 		var->b = var->b->next;
 		tmp->next->next = NULL;
+		var->counter++;
+		if (var->operation == SORTING)
+			write(STDOUT_FILENO, "rb\n", 3);
 	}
-	var->counter++;
-	if (var->operation == SORTING)
-		write(STDOUT_FILENO, "rb\n", 3);
 }
 
 void	rr(t_var *var)
 {
-	ra(var);
-	rb(var);
-	var->counter++;
-	if (var->operation == SORTING)
+	t_stack	*tmp;
+
+	tmp = NULL;
+	if (var->a != NULL && var->a->next != NULL)
+	{
+		tmp = var->a;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = var->a;
+		var->a = var->a->next;
+		tmp->next->next = NULL;
+	}
+	if (var->b != NULL && var->b->next != NULL)
+	{
+		tmp = var->b;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = var->b;
+		var->b = var->b->next;
+		tmp->next->next = NULL;
+	}
+	if (tmp != NULL)
+		var->counter++;
+	if (tmp != NULL && var->operation == SORTING)
 		write(STDOUT_FILENO, "rr\n", 3);
 }

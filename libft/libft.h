@@ -109,6 +109,7 @@ char	fic(char condition, char then, char otherwise_then);
 int		fii(char condition, int then, int otherwise_then);
 size_t	fis(char condition, size_t then, size_t otherwise_then);
 U_INT	fiu(char condition, U_INT then, U_INT otherwise_then);
+void	*fiv(char condition, void *then, void *otherwise_then);
 
 size_t	ft_arrsize(const void **arr);
 

@@ -12,34 +12,6 @@
 
 #include "push_swap.h"
 
-static int	push_swap_atoi(const char *str)
-{
-	unsigned long int	nbr;
-	int					sign;
-	int					i;
-
-	nbr = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != 0 && str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = nbr * 10 + (str[i] - '0');
-		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr - 1 > INT_MAX))
-			ft_simple_errexit("Error");
-		i++;
-	}
-	if (str[i] != 0)
-		ft_simple_errexit("Error");
-	return ((int)nbr * sign);
-}
-
 static t_stack	*init_a(int argc, const char **argv)
 {
 	int		i;
@@ -78,32 +50,40 @@ int	main(int argc, const char **argv)
 	int		test1;
 	int		test2;
 	int		test3;
+	int		test4;
 
 	test1 = 0;
 	test2 = 0;
 	test3 = 0;
+	test4 = 0;
 	init(&var, argc, argv);
 	if (is_sorted(var.a, SORTING_MODE) == FALSE)
 	{
-		test1 = bubble_sorting_a(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
-		init(&var, argc, argv);
-		test2 = bubble_2stack_sorting(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
-		init(&var, argc, argv);
-		test3 = stackb_fill_sorting(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
-		init(&var, argc, argv);
-		var.operation = SORTING;
-		if (test1 <= test2 && test1 <= test3)
-			bubble_sorting_a(&var, var.n, SORTING_MODE);
-		else if (test2 <= test1 && test2 <= test3)
-			bubble_2stack_sorting(&var, var.n, SORTING_MODE);
-		else if (test3 <= test1 && test3 <= test2)
-			stackb_fill_sorting(&var, var.n, SORTING_MODE);
+//		test1 = bubble_sorting_a(&var, var.n, SORTING_MODE);
+//		lc(FREE_ALL);
+//		init(&var, argc, argv);
+//		test2 = bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
+//		lc(FREE_ALL);
+//		init(&var, argc, argv);
+//		test3 = stackb_fill_sorting(&var, var.n, SORTING_MODE);
+//		lc(FREE_ALL);
+//		init(&var, argc, argv);
+//		test4 = radix2_sorting(&var, var.n, SORTING_MODE);
+//		lc(FREE_ALL);
+//		init(&var, argc, argv);
+//		var.operation = SORTING;
+//		if (test1 <= test2 && test1 <= test3 && test1 <= test4)
+//			bubble_sorting_a(&var, var.n, SORTING_MODE);
+//		else if (test2 <= test1 && test2 <= test3 && test2 <= test4)
+//			bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
+//		else if (test3 <= test1 && test3 <= test2 && test3 <= test4)
+//			stackb_fill_sorting(&var, var.n, SORTING_MODE);
+//		else if (test4 <= test1 && test4 <= test2 && test4 <= test3)
+//			radix2_sorting(&var, var.n, SORTING_MODE);
+		markup_sorting_i(&var, var.n, SORTING_MODE);
 	}
 	if (DEBAG_MODE == TRUE)
-		print_info(&var, test1, test2, test3);
+		print_info(&var, test1, test2, test3, test4);
 	lc(FREE_ALL);
 	return (0);
 }

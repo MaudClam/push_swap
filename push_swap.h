@@ -18,40 +18,48 @@
 # endif
 
 # ifndef SORTING_MODE
-#  define SORTING_MODE ASCNDNG
+#  define SORTING_MODE DSCNDNG
 # endif
 
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
 
-typedef enum e_sorting	t_sorting;
+typedef enum e_sort		t_sort;
 typedef struct s_stack	t_stack;
 typedef struct s_tree	t_tree;
 typedef struct s_var	t_var;
 
-enum e_sorting
+enum e_sort
 {
 	TESTING,
 	SORTING,
 	ASCNDNG,
 	DSCNDNG,
+	NOT_FOUND,
+	DIRECT,
+	REVERSE,
 };
 
 struct s_var
 {
-	int			counter;
-	size_t		n;
-	t_stack		*a;
-	t_stack		*b;
-	t_tree		*root;
-	t_sorting	operation;
+	int		counter;
+	size_t	n;
+	t_stack	*a;
+	t_stack	*b;
+	t_tree	*root;
+	t_sort	operation;
+	size_t	markup_i[2];
+	size_t	markup_g[2];
 };
 
 struct s_stack
 {
 	int		data;
 	size_t	index;
+	size_t	markup_i;
+	size_t	markup_g;
+	char	stack_a;
 	t_stack	*next;
 };
 
@@ -90,21 +98,35 @@ void	rrr(t_var *var);
 /*
 ** 		sorting.c
 */
-int		bubble_sorting_a(t_var *var, size_t a_size, t_sorting mode);
-int		bubble_sorting_b(t_var *var, size_t b_size, t_sorting mode);
-int		bubble_2stack_sorting(t_var *var, size_t s_size, t_sorting mode);
+int		bubble_sorting_a(t_var *var, size_t a_size, t_sort mode);
+int		bubble_2stacks_sorting(t_var *var, size_t s_size, t_sort mode);
 /*
 ** 		sorting1.c
 */
-int		special6_sorting_a(t_var *var, t_sorting mode);
-int		special6_sorting_b(t_var *var, t_sorting mode);
-void	find_index_put_to_stackb(t_var *var, size_t *a_size, size_t index);
-int		stackb_fill_sorting(t_var *var, size_t s_size, t_sorting mode);
+int		special6_sorting_a(t_var *var, t_sort mode);
+int		special6_sorting_b(t_var *var, t_sort mode);
+int		stackb_fill_sorting(t_var *var, size_t s_size, t_sort mode);
+int		radix2_sorting(t_var *var, size_t s_size, t_sort mode);
+/*
+** 		sorting2.c
+*/
+int		markup_sorting_i(t_var *var, size_t s_size, t_sort mode);
+int		markup_sorting_g(t_var *var, size_t s_size, t_sort mode);
+void	markup_counter_i(t_stack *head, size_t s_size, t_sort mode);
+void	markup_counter_g(t_stack *head, size_t s_size, t_sort mode);
+void 	choose_markup_head_i(t_var *var, t_sort mode);
+/*
+** 		sorting3.c
+*/
+void 	choose_markup_head_g(t_var *var, t_sort mode);
+void	markup_i(t_var *var, size_t s_size, t_sort mode);
+void	markup_g(t_var *var, size_t s_size, t_sort mode);
 /*
 ** 		utils.c
 */
-int		is_sorted(t_stack *s, t_sorting mode);
+int		is_sorted(t_stack *s, t_sort mode);
+int		push_swap_atoi(const char *str);
 void	print_stacks(t_var *var);
-void	print_info(t_var *var, int test1, int test2, int test3);
+void	print_info(t_var *var, int test1, int test2, int test3, int test4);
 
 #endif

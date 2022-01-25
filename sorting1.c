@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	special6_sorting_a(t_var *var, t_sorting mode)
+int	special6_sorting_a(t_var *var, t_sort mode)
 {
 	if (var->a != NULL && var->a->next != NULL)
 	{
@@ -30,7 +30,7 @@ int	special6_sorting_a(t_var *var, t_sorting mode)
 	return (var->counter);
 }
 
-int	special6_sorting_b(t_var *var, t_sorting mode)
+int	special6_sorting_b(t_var *var, t_sort mode)
 {
 	if (var->b != NULL && var->b->next != NULL)
 	{
@@ -48,7 +48,7 @@ int	special6_sorting_b(t_var *var, t_sorting mode)
 	return (var->counter);
 }
 
-void	find_index_put_to_stackb(t_var *var, size_t *a_size, size_t index)
+static void	find_index_put_to_stackb(t_var *var, size_t *a_size, size_t index)
 {
 	size_t			i;
 	t_stack			*tmp;
@@ -77,7 +77,7 @@ void	find_index_put_to_stackb(t_var *var, size_t *a_size, size_t index)
 	}
 }
 
-int	stackb_fill_sorting(t_var *var, size_t s_size, t_sorting mode)
+int	stackb_fill_sorting(t_var *var, size_t s_size, t_sort mode)
 {
 	size_t	a_size;
 	size_t	desired_index;
@@ -96,5 +96,33 @@ int	stackb_fill_sorting(t_var *var, size_t s_size, t_sorting mode)
 	}
 	while (s_size--)
 		pa(var);
+	return (var->counter);
+}
+
+int	radix2_sorting(t_var *var, size_t s_size, t_sort mode)
+{
+	size_t	max_bits;
+	size_t	i;
+	size_t	j;
+
+	max_bits = 0;
+	while ((s_size - 1) >> max_bits != 0)
+		max_bits++;
+	i = 0;
+	while (i < s_size && is_sorted(var->a, mode) != TRUE)
+	{
+		j = 0;
+		while (j < s_size)
+		{
+			if ((var->a->index >> i & 1) == fis(mode == ASCNDNG, 1, 0))
+				ra(var);
+			else
+				pb(var);
+			j++;
+		}
+		while (var->b != NULL)
+			pa(var);
+		i++;
+	}
 	return (var->counter);
 }
