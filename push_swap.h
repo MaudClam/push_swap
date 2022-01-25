@@ -108,20 +108,6 @@ int		special6_sorting_b(t_var *var, t_sort mode);
 int		stackb_fill_sorting(t_var *var, size_t s_size, t_sort mode);
 int		radix2_sorting(t_var *var, size_t s_size, t_sort mode);
 /*
-** 		sorting2.c
-*/
-int		markup_sorting_i(t_var *var, size_t s_size, t_sort mode);
-int		markup_sorting_g(t_var *var, size_t s_size, t_sort mode);
-void	markup_counter_i(t_stack *head, size_t s_size, t_sort mode);
-void	markup_counter_g(t_stack *head, size_t s_size, t_sort mode);
-void 	choose_markup_head_i(t_var *var, t_sort mode);
-/*
-** 		sorting3.c
-*/
-void 	choose_markup_head_g(t_var *var, t_sort mode);
-void	markup_i(t_var *var, size_t s_size, t_sort mode);
-void	markup_g(t_var *var, size_t s_size, t_sort mode);
-/*
 ** 		utils.c
 */
 int		is_sorted(t_stack *s, t_sort mode);
