@@ -44,45 +44,48 @@ static void	init(t_var *var, int argc, const char **argv)
 	var->n = argc - 1;
 }
 
+static int	algorithms_testing(t_var *var, int *test, int argc, \
+															const char **argv)
+{
+	var->operation = TESTING;
+	test[0] = bubble_sorting_a(var, var->n, SORTING_MODE);
+	lc(FREE_ALL);
+	init(var, argc, argv);
+	test[1] = bubble_2stacks_sorting(var, var->n, SORTING_MODE);
+	lc(FREE_ALL);
+	init(var, argc, argv);
+	test[2] = stackb_fill_sorting(var, var->n, SORTING_MODE);
+	lc(FREE_ALL);
+	init(var, argc, argv);
+	test[3] = radix2_sorting(var, var->n, SORTING_MODE);
+	lc(FREE_ALL);
+	return (find_min(test, 4));
+}
+
 int	main(int argc, const char **argv)
 {
+	int		min;
 	t_var	var;
-	int		test1;
-	int		test2;
-	int		test3;
-	int		test4;
+	int		test[4];
 
-	test1 = 0;
-	test2 = 0;
-	test3 = 0;
-	test4 = 0;
+	min = -1;
 	init(&var, argc, argv);
 	if (is_sorted(var.a, SORTING_MODE) == FALSE)
 	{
-		test1 = bubble_sorting_a(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
-		init(&var, argc, argv);
-		test2 = bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
-		init(&var, argc, argv);
-		test3 = stackb_fill_sorting(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
-		init(&var, argc, argv);
-		test4 = radix2_sorting(&var, var.n, SORTING_MODE);
-		lc(FREE_ALL);
+		min = algorithms_testing(&var, test, argc, argv);
 		init(&var, argc, argv);
 		var.operation = SORTING;
-		if (test1 <= test2 && test1 <= test3 && test1 <= test4)
+		if (min == 0)
 			bubble_sorting_a(&var, var.n, SORTING_MODE);
-		else if (test2 <= test1 && test2 <= test3 && test2 <= test4)
+		else if (min == 1)
 			bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
-		else if (test3 <= test1 && test3 <= test2 && test3 <= test4)
+		else if (min == 2)
 			stackb_fill_sorting(&var, var.n, SORTING_MODE);
-		else if (test4 <= test1 && test4 <= test2 && test4 <= test3)
+		else if (min == 3)
 			radix2_sorting(&var, var.n, SORTING_MODE);
 	}
 	if (DEBAG_MODE == TRUE)
-		print_info(&var, test1, test2, test3, test4);
+		print_info(&var, test);
 	lc(FREE_ALL);
 	return (0);
 }

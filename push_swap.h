@@ -104,7 +104,8 @@ int		radix2_sorting(t_var *var, size_t s_size, t_sort mode);
 */
 int		is_sorted(t_stack *s, t_sort mode);
 int		push_swap_atoi(const char *str);
+int		find_min(int *a, int i);
 void	print_stacks(t_var *var);
-void	print_info(t_var *var, int test1, int test2, int test3, int test4);
+void	print_info(t_var *var, int *test);
 
 #endif

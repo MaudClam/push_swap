@@ -53,6 +53,24 @@ int	push_swap_atoi(const char *str)
 	return ((int)nbr * sign);
 }
 
+int	find_min(int *a, int i)
+{
+	int	vol;
+	int	idx;
+	
+	vol = INT_MAX;
+	idx = -1;
+	while (i--)
+	{
+		if (a[i] < vol)
+		{
+			idx = i;
+			vol = a[i];
+		}
+	}
+	return (idx);
+}
+
 void	print_stacks(t_var *var)
 {
 	t_stack	*tmp_a;
@@ -82,18 +100,15 @@ void	print_stacks(t_var *var)
 	write (STDOUT_FILENO, "\n", 1);
 }
 
-void	print_info(t_var *var, int test1, int test2, int test3, int test4)
+void	print_info(t_var *var, int *test)
 {
 	print_stacks(var);
-	ft_putnbr_fd(test1, STDOUT_FILENO);
+	ft_putnbr_fd(test[0], STDOUT_FILENO);
 	write (STDOUT_FILENO, " bubble_sorting_a\n", 18);
-	ft_putnbr_fd(test2, STDOUT_FILENO);
+	ft_putnbr_fd(test[1], STDOUT_FILENO);
 	write (STDOUT_FILENO, " bubble_2stacks_sorting\n", 24);
-	ft_putnbr_fd(test3, STDOUT_FILENO);
+	ft_putnbr_fd(test[2], STDOUT_FILENO);
 	write (STDOUT_FILENO, " stackb_fill_sorting\n", 21);
-	ft_putnbr_fd(test4, STDOUT_FILENO);
+	ft_putnbr_fd(test[3], STDOUT_FILENO);
 	write (STDOUT_FILENO, " radix2_sorting\n", 16);
-//	int i = 500;
-//	while (i--)
-//		printf("%d ", i);
 }
