@@ -17,7 +17,7 @@ static t_stack	*init_a(int argc, const char **argv)
 	int		i;
 	t_stack	*head_a;
 	t_stack	*tmp;
-	
+
 	i = 1;
 	head_a = NULL;
 	if (argc > 1)

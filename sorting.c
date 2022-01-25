@@ -15,7 +15,7 @@
 int	bubble_sorting_a(t_var *var, size_t a_size, t_sort mode)
 {
 	size_t	i;
-	
+
 	if (var->a != NULL && var->a->next != NULL)
 	{
 		while (is_sorted(var->a, mode) == FALSE)
@@ -41,7 +41,7 @@ int	bubble_sorting_a(t_var *var, size_t a_size, t_sort mode)
 static int	bubble_sorting_b(t_var *var, size_t b_size, t_sort mode)
 {
 	size_t	i;
-	
+
 	if (var->b != NULL && var->b->next != NULL)
 	{
 		while (is_sorted(var->b, mode) == FALSE)
@@ -130,4 +130,3 @@ int	bubble_2stacks_sorting(t_var *var, size_t s_size, t_sort mode)
 		bubble_2stacks_sorting_dscndng(var, s_size);
 	return (var->counter);
 }
-

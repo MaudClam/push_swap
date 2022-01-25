@@ -52,7 +52,7 @@ CFLAGS =	-Wall -Wextra -Werror
 			$(CC) $(CFLAGS) $(TEST) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
-			@echo "Make done"
+			@echo "Make libft done"
 
 $(NAME):	$(OBJS)
 			ar rc $(NAME) $(OBJS) $(HEADER)
@@ -60,11 +60,11 @@ $(NAME):	$(OBJS)
 
 clean:
 			@rm -f $(OBJS) $(HEADER).gch
-			@echo "Make clean done"
+			@echo "Make clean libft done"
 
 fclean:		clean
 			@rm -f $(NAME)
-			@echo "Make fclean done"
+			@echo "Make fclean libft done"
 
 re:			fclean all
 

@@ -81,7 +81,7 @@ int	stackb_fill_sorting(t_var *var, size_t s_size, t_sort mode)
 {
 	size_t	a_size;
 	size_t	desired_index;
-	
+
 	a_size = s_size;
 	desired_index = 0;
 	if (mode == DSCNDNG)

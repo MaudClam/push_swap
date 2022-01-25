@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # ifndef DEBAG_MODE
-#  define DEBAG_MODE TRUE
+#  define DEBAG_MODE FALSE
 # endif
 
 # ifndef SORTING_MODE

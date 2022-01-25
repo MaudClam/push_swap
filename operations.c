@@ -15,7 +15,7 @@
 void	sa(t_var *var)
 {
 	t_stack	*tmp;
-	
+
 	if (var->a != NULL && var->a->next != NULL)
 	{
 		tmp = var->a;
@@ -31,7 +31,7 @@ void	sa(t_var *var)
 void	sb(t_var *var)
 {
 	t_stack	*tmp;
-	
+
 	if (var->b != NULL && var->b->next != NULL)
 	{
 		tmp = var->b;
@@ -47,7 +47,7 @@ void	sb(t_var *var)
 void	ss(t_var *var)
 {
 	t_stack	*tmp;
-	
+
 	tmp = NULL;
 	if (var->a != NULL && var->a->next != NULL)
 	{
@@ -72,7 +72,7 @@ void	ss(t_var *var)
 void	pa(t_var *var)
 {
 	t_stack	*tmp;
-	
+
 	if (var->b != NULL)
 	{
 		tmp = var->b;
@@ -88,7 +88,7 @@ void	pa(t_var *var)
 void	pb(t_var *var)
 {
 	t_stack	*tmp;
-	
+
 	if (var->a != NULL)
 	{
 		tmp = var->a;

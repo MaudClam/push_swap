@@ -22,11 +22,12 @@ SRCS			=   indexing_a.c \
 					utils.c \
 
 LIBFT			=	${LIBFTDIR}libft.a
+
 LIBFTDIR		=	libft/
 
 OBJS			=	${SRCS:.c=.o}
 
-INCLUDE			=	push_swap.h
+HEADER			=	push_swap.h
 
 CFLAGS			=	-Wall -Wextra -Werror
 
@@ -34,28 +35,35 @@ GCC				=	gcc
 
 CLEAN			=	rm -f
 
-.c.o:
+# The test TEST is taken from the command line, for example:
+# make re TEST="-D DEBAG_MODE=TRUE"
+# make re TEST="-D SORTING_MODE=DSCNDNG"
+
+%.o:			%.c ${HEADER}
 				${GCC} ${CFLAGS} -I${LIBFTDIR} -c $< -o ${<:.c=.o}
-
-${NAME}:		${LIBFT} ${OBJS} ${INCLUDE}
-				${GCC} ${OBJS} \
-				-L${LIBFTDIR} -lft \
-				-I${LIBFTDIR} -Iinclude \
-				-o ${NAME}
-
-${LIBFT}:
-				make -C ${LIBFTDIR} libft.a
 
 all:			${NAME}
 
+${NAME}:		${LIBFT} ${OBJS}
+				${GCC} ${CFLAGS} $(TEST) ${OBJS} -L${LIBFTDIR} -lft -o ${NAME}
+				@echo "Make done"
+
+${LIBFT}:
+				@make -C ${LIBFTDIR} libft.a
+
 clean:
-				${CLEAN} ${OBJS}
-				make -C ${LIBFTDIR} clean
+				@${CLEAN} ${OBJS}
+				@make -C ${LIBFTDIR} clean
+				@echo "Make clean done"
 
 fclean:			clean
-				${CLEAN} ${NAME}
-				make -C ${LIBFTDIR} fclean
+				@${CLEAN} ${NAME}
+				@make -C ${LIBFTDIR} fclean
+				@echo "Make fclean done"
 
 re:				fclean all
+
+norm:
+				norminette
 
 .PHONY:			all clean fclean re libft

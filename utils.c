@@ -57,7 +57,7 @@ int	find_min(int *a, int i)
 {
 	int	vol;
 	int	idx;
-	
+
 	vol = INT_MAX;
 	idx = -1;
 	while (i--)
@@ -75,7 +75,7 @@ void	print_stacks(t_var *var)
 {
 	t_stack	*tmp_a;
 	t_stack	*tmp_b;
-	
+
 	tmp_a = var->a;
 	tmp_b = var->b;
 	while (tmp_a != NULL || tmp_b != NULL)

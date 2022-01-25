@@ -15,7 +15,7 @@
 static t_tree	*alloc_tree_node(t_stack *element)
 {
 	t_tree	*node;
-	
+
 	node = ft_calloc_lc(1, sizeof(t_tree));
 	node->element = element;
 	return (node);
@@ -40,7 +40,7 @@ static t_tree	*add_node_recursive(t_tree *node, t_stack *element)
 void	build_tree(t_var *var)
 {
 	t_stack	*tmp;
-	
+
 	tmp = var->a;
 	while (tmp != NULL)
 	{
@@ -62,7 +62,7 @@ static void	indexing_a_recursive(t_tree	*node, size_t *index)
 void	indexing_a(t_var *var)
 {
 	size_t	index;
-	
+
 	index = 0;
 	if (var->root != NULL)
 		indexing_a_recursive(var->root, &index);
