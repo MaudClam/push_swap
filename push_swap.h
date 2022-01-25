@@ -18,7 +18,7 @@
 # endif
 
 # ifndef SORTING_MODE
-#  define SORTING_MODE DSCNDNG
+#  define SORTING_MODE ASCNDNG
 # endif
 
 # include <unistd.h>
@@ -36,9 +36,6 @@ enum e_sort
 	SORTING,
 	ASCNDNG,
 	DSCNDNG,
-	NOT_FOUND,
-	DIRECT,
-	REVERSE,
 };
 
 struct s_var
@@ -49,17 +46,12 @@ struct s_var
 	t_stack	*b;
 	t_tree	*root;
 	t_sort	operation;
-	size_t	markup_i[2];
-	size_t	markup_g[2];
 };
 
 struct s_stack
 {
 	int		data;
 	size_t	index;
-	size_t	markup_i;
-	size_t	markup_g;
-	char	stack_a;
 	t_stack	*next;
 };
 

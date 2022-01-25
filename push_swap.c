@@ -59,28 +59,27 @@ int	main(int argc, const char **argv)
 	init(&var, argc, argv);
 	if (is_sorted(var.a, SORTING_MODE) == FALSE)
 	{
-//		test1 = bubble_sorting_a(&var, var.n, SORTING_MODE);
-//		lc(FREE_ALL);
-//		init(&var, argc, argv);
-//		test2 = bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
-//		lc(FREE_ALL);
-//		init(&var, argc, argv);
-//		test3 = stackb_fill_sorting(&var, var.n, SORTING_MODE);
-//		lc(FREE_ALL);
-//		init(&var, argc, argv);
-//		test4 = radix2_sorting(&var, var.n, SORTING_MODE);
-//		lc(FREE_ALL);
-//		init(&var, argc, argv);
-//		var.operation = SORTING;
-//		if (test1 <= test2 && test1 <= test3 && test1 <= test4)
-//			bubble_sorting_a(&var, var.n, SORTING_MODE);
-//		else if (test2 <= test1 && test2 <= test3 && test2 <= test4)
-//			bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
-//		else if (test3 <= test1 && test3 <= test2 && test3 <= test4)
-//			stackb_fill_sorting(&var, var.n, SORTING_MODE);
-//		else if (test4 <= test1 && test4 <= test2 && test4 <= test3)
-//			radix2_sorting(&var, var.n, SORTING_MODE);
-		markup_sorting_i(&var, var.n, SORTING_MODE);
+		test1 = bubble_sorting_a(&var, var.n, SORTING_MODE);
+		lc(FREE_ALL);
+		init(&var, argc, argv);
+		test2 = bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
+		lc(FREE_ALL);
+		init(&var, argc, argv);
+		test3 = stackb_fill_sorting(&var, var.n, SORTING_MODE);
+		lc(FREE_ALL);
+		init(&var, argc, argv);
+		test4 = radix2_sorting(&var, var.n, SORTING_MODE);
+		lc(FREE_ALL);
+		init(&var, argc, argv);
+		var.operation = SORTING;
+		if (test1 <= test2 && test1 <= test3 && test1 <= test4)
+			bubble_sorting_a(&var, var.n, SORTING_MODE);
+		else if (test2 <= test1 && test2 <= test3 && test2 <= test4)
+			bubble_2stacks_sorting(&var, var.n, SORTING_MODE);
+		else if (test3 <= test1 && test3 <= test2 && test3 <= test4)
+			stackb_fill_sorting(&var, var.n, SORTING_MODE);
+		else if (test4 <= test1 && test4 <= test2 && test4 <= test3)
+			radix2_sorting(&var, var.n, SORTING_MODE);
 	}
 	if (DEBAG_MODE == TRUE)
 		print_info(&var, test1, test2, test3, test4);
