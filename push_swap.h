@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # ifndef DEBAG_MODE
-#  define DEBAG_MODE FALSE
+#  define DEBAG_MODE TRUE
 # endif
 
 # ifndef SORTING_MODE
@@ -97,8 +97,12 @@ int		bubble_2stacks_sorting(t_var *var, size_t s_size, t_sort mode);
 */
 int		special6_sorting_a(t_var *var, t_sort mode);
 int		special6_sorting_b(t_var *var, t_sort mode);
-int		stackb_fill_sorting(t_var *var, size_t s_size, t_sort mode);
+int		fill_stack_b_sorting(t_var *var, size_t s_size, t_sort mode);
 int		radix2_sorting(t_var *var, size_t s_size, t_sort mode);
+/*
+** 		sorting1.c
+*/
+int		radix2_sorting_optmzd(t_var *var, size_t s_size, t_sort mode);
 /*
 ** 		utils.c
 */
@@ -106,6 +110,6 @@ int		is_sorted(t_stack *s, t_sort mode);
 int		push_swap_atoi(const char *str);
 int		find_min(int *a, int i);
 void	print_stacks(t_var *var);
-void	print_info(t_var *var, int *test);
+void	print_info(t_var *var, t_sort mode, int *test);
 
 #endif

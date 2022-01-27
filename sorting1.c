@@ -77,7 +77,7 @@ static void	find_index_put_to_stackb(t_var *var, size_t *a_size, size_t index)
 	}
 }
 
-int	stackb_fill_sorting(t_var *var, size_t s_size, t_sort mode)
+int	fill_stack_b_sorting(t_var *var, size_t s_size, t_sort mode)
 {
 	size_t	a_size;
 	size_t	desired_index;
@@ -109,10 +109,10 @@ int	radix2_sorting(t_var *var, size_t s_size, t_sort mode)
 	while ((s_size - 1) >> max_bits != 0)
 		max_bits++;
 	i = 0;
-	while (i < s_size && is_sorted(var->a, mode) != TRUE)
+	while (i < max_bits && is_sorted(var->a, mode) != TRUE)
 	{
 		j = 0;
-		while (j < s_size)
+		while (j < s_size && is_sorted(var->a, mode) != TRUE)
 		{
 			if ((var->a->index >> i & 1) == fis(mode == ASCNDNG, 1, 0))
 				ra(var);

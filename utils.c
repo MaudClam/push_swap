@@ -100,15 +100,21 @@ void	print_stacks(t_var *var)
 	write (STDOUT_FILENO, "\n", 1);
 }
 
-void	print_info(t_var *var, int *test)
+void	print_info(t_var *var, t_sort mode, int *test)
 {
 	print_stacks(var);
+	if (is_sorted(var->a, mode) == TRUE)
+		write (STDOUT_FILENO, "Sorting OK\n", 11);
+	else
+		write (STDOUT_FILENO, "Sorting KO\n", 11);
 	ft_putnbr_fd(test[0], STDOUT_FILENO);
 	write (STDOUT_FILENO, " bubble_sorting_a\n", 18);
 	ft_putnbr_fd(test[1], STDOUT_FILENO);
 	write (STDOUT_FILENO, " bubble_2stacks_sorting\n", 24);
 	ft_putnbr_fd(test[2], STDOUT_FILENO);
-	write (STDOUT_FILENO, " stackb_fill_sorting\n", 21);
+	write (STDOUT_FILENO, " fill_stack_b_sorting\n", 22);
 	ft_putnbr_fd(test[3], STDOUT_FILENO);
 	write (STDOUT_FILENO, " radix2_sorting\n", 16);
+	ft_putnbr_fd(test[4], STDOUT_FILENO);
+	write (STDOUT_FILENO, " radix2_sorting_optmzd\n", 23);
 }
