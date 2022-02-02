@@ -52,7 +52,7 @@ GCC				=	gcc
 
 CLEAN			=	rm -f
 
-# The test TEST is taken from the command line, for example:
+# The flag TEST is taken from the command line, for example:
 # make re TEST="-D DEBAG_MODE=TRUE"
 # make re TEST="-D SORTING_MODE=DSCNDNG"
 
@@ -87,5 +87,10 @@ re:				fclean all
 
 norm:
 				norminette
+				
+help:
+				@echo "\033[2;1mThe flag TEST is taken from the command line, for example:\033[0m"
+				@echo "\033[2;1mmake re TEST=\"-D DEBAG_MODE=TRUE\"\033[0m"
+				@echo "\033[2;1mmake re TEST=\"-D SORTING_MODE=DSCNDNG\"\033[0m"
 
 .PHONY:			all clean fclean re libft bonus
