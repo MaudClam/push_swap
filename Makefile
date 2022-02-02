@@ -14,12 +14,6 @@ NAME			=	push_swap
 
 NAME_BONUS		=	checker
 
-DEFAULT			=	"\033[0m"
-
-GREEN			=	"\033[32m"
-
-RED				=	"\033[31m"
-
 SRCS			=   indexing_a.c \
 					init.c \
 					operations.c \
