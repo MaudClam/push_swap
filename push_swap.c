@@ -53,6 +53,7 @@ int	main(int argc, const char **argv)
 	int		min;
 	t_var	var;
 
+	ft_bzero(&test, sizeof(test));
 	min = -1;
 	init(&var, argc, argv);
 	if (is_sorted(var.a, SORTING_MODE) == FALSE)
