@@ -14,6 +14,12 @@ NAME			=	push_swap
 
 NAME_BONUS		=	checker
 
+DEFAULT			=	"\033[0m"
+
+GREEN			=	"\033[32m"
+
+RED				=	"\033[31m"
+
 SRCS			=   indexing_a.c \
 					init.c \
 					operations.c \
@@ -65,25 +71,23 @@ bonus:			${NAME_BONUS}
 
 ${NAME}:		${LIBFT} ${OBJS}
 				${GCC} ${CFLAGS} $(TEST) ${OBJS} -L${LIBFTDIR} -lft -o ${NAME}
-				@echo "Make done"
+				@echo "\033[2mMake done\033[0m"
 
 ${NAME_BONUS}:	${LIBFT} ${OBJS_BONUS}
-				${GCC} ${CFLAGS} $(TEST) ${OBJS_BONUS} -L${LIBFTDIR} -lft \
-				-o ${NAME_BONUS}
-				@echo "Make bonus done"
+				${GCC} ${CFLAGS} $(TEST) ${OBJS_BONUS} -L${LIBFTDIR} -lft -o ${NAME_BONUS}
+				@echo "\033[2mMake bonus done\033[0m"
 
 ${LIBFT}:
-				@make -C ${LIBFTDIR} libft.a
+				@make -C ${LIBFTDIR}
 
 clean:
 				@${CLEAN} ${OBJS} ${OBJS_BONUS}
 				@make -C ${LIBFTDIR} clean
-				@echo "Make clean done"
+				@echo "\033[2mMake clean done\033[0m"
 
 fclean:			clean
-				@${CLEAN} ${NAME} ${NAME_BONUS}
-				@make -C ${LIBFTDIR} fclean
-				@echo "Make fclean done"
+				@${CLEAN} ${NAME} ${NAME_BONUS} ${LIBFT}
+				@echo "\033[2mMake fclean done\033[0m"
 
 re:				fclean all
 

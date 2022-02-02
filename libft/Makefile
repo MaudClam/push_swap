@@ -49,27 +49,27 @@ CC =		gcc
 CFLAGS =	-Wall -Wextra -Werror
 
 .c.o:		%.c $(HEADER)
-			$(CC) $(CFLAGS) $(TEST) -c $< -o $(<:.c=.o)
+			@$(CC) $(CFLAGS) $(TEST) -c $< -o $(<:.c=.o)
 
 all:		$(NAME)
-			@echo "Make libft done"
+			@echo "\033[2mMake libft done\033[0m"
 
 $(NAME):	$(OBJS)
-			ar rc $(NAME) $(OBJS) $(HEADER)
-			ranlib $(NAME)
+			@ar rc $(NAME) $(OBJS) $(HEADER)
+			@ranlib $(NAME)
 
 clean:
 			@rm -f $(OBJS) $(HEADER).gch
-			@echo "Make clean libft done"
+			@echo "\033[2mMake clean libft done\033[0m"
 
 fclean:		clean
 			@rm -f $(NAME)
-			@echo "Make fclean libft done"
+			@echo "\033[2mMake fclean libft done\033[0m"
 
 re:			fclean all
 
 norm:
-			norminette *.c *.h
+			norminette
 
 .PHONY:		all clean fclean re norm
 
