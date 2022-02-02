@@ -45,11 +45,11 @@ int	push_swap_atoi(const char *str)
 	{
 		nbr = nbr * 10 + (str[i] - '0');
 		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr - 1 > INT_MAX))
-			ft_simple_errexit("Error");
+			error_exit();
 		i++;
 	}
-	if (str[i] != 0)
-		ft_simple_errexit("Error");
+	if (str[i] != '\0')
+		error_exit();
 	return ((int)nbr * sign);
 }
 
@@ -83,38 +83,38 @@ void	print_stacks(t_var *var)
 		if (tmp_a != NULL)
 		{
 			ft_putnbr_fd(tmp_a->data, STDOUT_FILENO);
-			write (STDOUT_FILENO, " ", 1);
+			write(STDOUT_FILENO, " ", 1);
 			tmp_a = tmp_a->next;
 		}
 		else
-			write (STDOUT_FILENO, "  ", 2);
+			write(STDOUT_FILENO, "  ", 2);
 		if (tmp_b != NULL)
 		{
 			ft_putnbr_fd(tmp_b->data, STDOUT_FILENO);
 			tmp_b = tmp_b->next;
 		}
-		write (STDOUT_FILENO, "\n", 1);
+		write(STDOUT_FILENO, "\n", 1);
 	}
-	write (STDOUT_FILENO, "_ _\na b, counter: ", 18);
+	write(STDOUT_FILENO, "_ _\na b, counter: ", 18);
 	ft_putnbr_fd(var->counter, STDOUT_FILENO);
-	write (STDOUT_FILENO, "\n", 1);
+	write(STDOUT_FILENO, "\n", 1);
 }
 
 void	print_info(t_var *var, t_sort mode, int *test)
 {
 	print_stacks(var);
 	if (is_sorted(var->a, mode) == TRUE)
-		write (STDOUT_FILENO, "Sorting OK\n", 11);
+		write(STDOUT_FILENO, "Sorting OK\n", 11);
 	else
-		write (STDOUT_FILENO, "Sorting KO\n", 11);
+		write(STDOUT_FILENO, "Sorting KO\n", 11);
 	ft_putnbr_fd(test[0], STDOUT_FILENO);
-	write (STDOUT_FILENO, " bubble_sorting_a\n", 18);
+	write(STDOUT_FILENO, " bubble_sorting_a\n", 18);
 	ft_putnbr_fd(test[1], STDOUT_FILENO);
-	write (STDOUT_FILENO, " bubble_2stacks_sorting\n", 24);
+	write(STDOUT_FILENO, " bubble_2stacks_sorting\n", 24);
 	ft_putnbr_fd(test[2], STDOUT_FILENO);
-	write (STDOUT_FILENO, " fill_stack_b_sorting\n", 22);
+	write(STDOUT_FILENO, " fill_stack_b_sorting\n", 22);
 	ft_putnbr_fd(test[3], STDOUT_FILENO);
-	write (STDOUT_FILENO, " radix2_sorting\n", 16);
+	write(STDOUT_FILENO, " radix2_sorting\n", 16);
 	ft_putnbr_fd(test[4], STDOUT_FILENO);
-	write (STDOUT_FILENO, " radix2_sorting_optmzd\n", 23);
+	write(STDOUT_FILENO, " radix2_sorting_optmzd\n", 23);
 }

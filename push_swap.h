@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # ifndef DEBAG_MODE
-#  define DEBAG_MODE TRUE
+#  define DEBAG_MODE FALSE
 # endif
 
 # ifndef SORTING_MODE
@@ -29,6 +29,7 @@ typedef enum e_sort		t_sort;
 typedef struct s_stack	t_stack;
 typedef struct s_tree	t_tree;
 typedef struct s_var	t_var;
+typedef struct s_oper	t_oper;
 
 enum e_sort
 {
@@ -46,6 +47,7 @@ struct s_var
 	t_stack	*b;
 	t_tree	*root;
 	t_sort	operation;
+	t_oper	*oper;
 };
 
 struct s_stack
@@ -62,6 +64,18 @@ struct s_tree
 	t_tree	*right;
 };
 
+struct	s_oper
+{
+	char	*name;
+	void	(*ptr)(t_var *var);
+	t_oper	*next;
+};
+
+/*
+** 		init.c
+*/
+void	init(t_var *var, int argc, const char **argv);
+void	error_exit(void);
 /*
 ** 		indexing_a.c
 */

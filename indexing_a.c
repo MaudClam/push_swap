@@ -30,7 +30,7 @@ static t_tree	*add_node_recursive(t_tree *node, t_stack *element)
 		else if (element->data > node->element->data)
 			node->right = add_node_recursive(node->right, element);
 		else
-			ft_simple_errexit("Error");
+			error_exit();
 	}
 	else
 		node = alloc_tree_node(element);

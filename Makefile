@@ -12,20 +12,37 @@
 
 NAME			=	push_swap
 
+NAME_BONUS		=	checker
+
 SRCS			=   indexing_a.c \
+					init.c \
 					operations.c \
 					operations1.c \
 					operations2.c \
 					push_swap.c \
 					sorting.c \
 					sorting1.c \
-					utils.c \
+					sorting2.c \
+					utils.c
 
+SRCS_BONUS		=   indexing_a.c \
+					init.c \
+					operations.c \
+					operations1.c \
+					operations2.c \
+					checker.c \
+					sorting.c \
+					sorting1.c \
+					sorting2.c \
+					utils.c
+					
 LIBFT			=	${LIBFTDIR}libft.a
 
 LIBFTDIR		=	libft/
 
 OBJS			=	${SRCS:.c=.o}
+
+OBJS_BONUS		=	${SRCS_BONUS:.c=.o}
 
 HEADER			=	push_swap.h
 
@@ -40,24 +57,31 @@ CLEAN			=	rm -f
 # make re TEST="-D SORTING_MODE=DSCNDNG"
 
 %.o:			%.c ${HEADER}
-				${GCC} ${CFLAGS} -I${LIBFTDIR} -c $< -o ${<:.c=.o}
+				${GCC} ${CFLAGS} ${TEST} -I${LIBFTDIR} -c $< -o ${<:.c=.o}
 
 all:			${NAME}
+
+bonus:			${NAME_BONUS}
 
 ${NAME}:		${LIBFT} ${OBJS}
 				${GCC} ${CFLAGS} $(TEST) ${OBJS} -L${LIBFTDIR} -lft -o ${NAME}
 				@echo "Make done"
 
+${NAME_BONUS}:	${LIBFT} ${OBJS_BONUS}
+				${GCC} ${CFLAGS} $(TEST) ${OBJS_BONUS} -L${LIBFTDIR} -lft \
+				-o ${NAME_BONUS}
+				@echo "Make bonus done"
+
 ${LIBFT}:
 				@make -C ${LIBFTDIR} libft.a
 
 clean:
-				@${CLEAN} ${OBJS}
+				@${CLEAN} ${OBJS} ${OBJS_BONUS}
 				@make -C ${LIBFTDIR} clean
 				@echo "Make clean done"
 
 fclean:			clean
-				@${CLEAN} ${NAME}
+				@${CLEAN} ${NAME} ${NAME_BONUS}
 				@make -C ${LIBFTDIR} fclean
 				@echo "Make fclean done"
 
@@ -66,4 +90,4 @@ re:				fclean all
 norm:
 				norminette
 
-.PHONY:			all clean fclean re libft
+.PHONY:			all clean fclean re libft bonus

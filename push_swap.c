@@ -12,38 +12,6 @@
 
 #include "push_swap.h"
 
-static t_stack	*init_a(int argc, const char **argv)
-{
-	int		i;
-	t_stack	*head_a;
-	t_stack	*tmp;
-
-	i = 1;
-	head_a = NULL;
-	if (argc > 1)
-	{
-		head_a = ft_calloc_lc(1, sizeof(t_stack));
-		head_a->data = push_swap_atoi(argv[i++]);
-		tmp = head_a;
-		while (i < argc)
-		{
-			tmp->next = ft_calloc_lc(1, sizeof(t_stack));
-			tmp = tmp->next;
-			tmp->data = push_swap_atoi(argv[i++]);
-		}
-	}
-	return (head_a);
-}
-
-static void	init(t_var *var, int argc, const char **argv)
-{
-	ft_bzero(var, sizeof(t_var));
-	var->a = init_a(argc, argv);
-	build_tree(var);
-	indexing_a(var);
-	var->n = argc - 1;
-}
-
 static int	algorithms_testing(t_var *var, int *test, int argc, \
 															const char **argv)
 {
@@ -85,11 +53,11 @@ int	main(int argc, const char **argv)
 	int		min;
 	t_var	var;
 
-	ft_bzero(test, sizeof(test));
 	min = -1;
 	init(&var, argc, argv);
 	if (is_sorted(var.a, SORTING_MODE) == FALSE)
 	{
+		var.operation = TESTING;
 		min = algorithms_testing(&var, test, argc, argv);
 		init(&var, argc, argv);
 		var.operation = SORTING;
