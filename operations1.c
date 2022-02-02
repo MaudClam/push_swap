@@ -25,7 +25,7 @@ void	ra(t_var *var)
 		var->a = var->a->next;
 		tmp->next->next = NULL;
 		var->counter++;
-		if (var->operation == SORTING)
+		if (var->procedure == SORTING)
 			write(STDOUT_FILENO, "ra\n", 3);
 	}
 }
@@ -43,7 +43,7 @@ void	rb(t_var *var)
 		var->b = var->b->next;
 		tmp->next->next = NULL;
 		var->counter++;
-		if (var->operation == SORTING)
+		if (var->procedure == SORTING)
 			write(STDOUT_FILENO, "rb\n", 3);
 	}
 }
@@ -73,6 +73,6 @@ void	rr(t_var *var)
 	}
 	if (tmp != NULL)
 		var->counter++;
-	if (tmp != NULL && var->operation == SORTING)
+	if (tmp != NULL && var->procedure == SORTING)
 		write(STDOUT_FILENO, "rr\n", 3);
 }

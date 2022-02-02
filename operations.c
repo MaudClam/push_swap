@@ -23,7 +23,7 @@ void	sa(t_var *var)
 		tmp->next = var->a->next;
 		var->a->next = tmp;
 		var->counter++;
-		if (var->operation == SORTING)
+		if (var->procedure == SORTING)
 			write(STDOUT_FILENO, "sa\n", 3);
 	}
 }
@@ -39,7 +39,7 @@ void	sb(t_var *var)
 		tmp->next = var->b->next;
 		var->b->next = tmp;
 		var->counter++;
-		if (var->operation == SORTING)
+		if (var->procedure == SORTING)
 			write(STDOUT_FILENO, "sb\n", 3);
 	}
 }
@@ -65,7 +65,7 @@ void	ss(t_var *var)
 	}
 	if (tmp != NULL)
 		var->counter++;
-	if (tmp != NULL && var->operation == SORTING)
+	if (tmp != NULL && var->procedure == SORTING)
 		write(STDOUT_FILENO, "ss\n", 3);
 }
 
@@ -80,7 +80,7 @@ void	pa(t_var *var)
 		tmp->next = var->a;
 		var->a = tmp;
 		var->counter++;
-		if (var->operation == SORTING)
+		if (var->procedure == SORTING)
 			write(STDOUT_FILENO, "pa\n", 3);
 	}
 }
@@ -96,7 +96,7 @@ void	pb(t_var *var)
 		tmp->next = var->b;
 		var->b = tmp;
 		var->counter++;
-		if (var->operation == SORTING)
+		if (var->procedure == SORTING)
 			write(STDOUT_FILENO, "pb\n", 3);
 	}
 }

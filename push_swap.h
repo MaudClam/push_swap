@@ -46,8 +46,8 @@ struct s_var
 	t_stack	*a;
 	t_stack	*b;
 	t_tree	*root;
-	t_sort	operation;
-	t_oper	*oper;
+	t_sort	procedure;
+	t_oper	*ptrs_array;
 };
 
 struct s_stack

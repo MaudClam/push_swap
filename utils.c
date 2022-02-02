@@ -103,7 +103,7 @@ void	print_stacks(t_var *var)
 void	print_info(t_var *var, t_sort mode, int *test)
 {
 	print_stacks(var);
-	if (is_sorted(var->a, mode) == TRUE)
+	if (is_sorted(var->a, mode) == TRUE && var->b == NULL)
 		write(STDOUT_FILENO, "Sorting OK\n", 11);
 	else
 		write(STDOUT_FILENO, "Sorting KO\n", 11);

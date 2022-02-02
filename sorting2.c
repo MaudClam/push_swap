@@ -26,9 +26,7 @@ static void	from_a_to_b(t_var *var, size_t i, size_t *b_size, t_sort mode)
 static void	from_b_to_a(t_var *var, size_t i, size_t *b_size, t_sort mode)
 {
 	if ((var->b->index >> i & 1) == fis(mode == ASCNDNG, 0, 1))
-	{
 		rb(var);
-	}
 	else
 	{
 		pa(var);

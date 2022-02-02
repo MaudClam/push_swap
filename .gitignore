@@ -10,3 +10,7 @@ a.out
 tests/*
 build/*
 .DS_Store
+push_swap
+checker
+libft/libft.a
+libft/.DS_Store

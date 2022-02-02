@@ -15,7 +15,7 @@
 static int	algorithms_testing(t_var *var, int *test, int argc, \
 															const char **argv)
 {
-	var->operation = TESTING;
+	var->procedure = TESTING;
 	test[0] = bubble_sorting_a(var, var->n, SORTING_MODE);
 	lc(FREE_ALL);
 	init(var, argc, argv);
@@ -57,10 +57,10 @@ int	main(int argc, const char **argv)
 	init(&var, argc, argv);
 	if (is_sorted(var.a, SORTING_MODE) == FALSE)
 	{
-		var.operation = TESTING;
+		var.procedure = TESTING;
 		min = algorithms_testing(&var, test, argc, argv);
 		init(&var, argc, argv);
-		var.operation = SORTING;
+		var.procedure = SORTING;
 		execute_best_algorithm(&var, min);
 	}
 	if (DEBAG_MODE == TRUE)
