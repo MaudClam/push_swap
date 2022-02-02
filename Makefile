@@ -93,4 +93,4 @@ help:
 				@echo "\033[2;1mmake re TEST=\"-D DEBAG_MODE=TRUE\"\033[0m"
 				@echo "\033[2;1mmake re TEST=\"-D SORTING_MODE=DSCNDNG\"\033[0m"
 
-.PHONY:			all clean fclean re libft bonus
+.PHONY:			all clean fclean re libft bonus help
