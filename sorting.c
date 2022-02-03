@@ -38,7 +38,7 @@ int	bubble_sorting_a(t_var *var, size_t a_size, t_sort mode)
 	return (var->counter);
 }
 
-static int	bubble_sorting_b(t_var *var, size_t b_size, t_sort mode)
+int	bubble_sorting_b(t_var *var, size_t b_size, t_sort mode)
 {
 	size_t	i;
 

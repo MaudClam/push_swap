@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # ifndef DEBAG_MODE
-#  define DEBAG_MODE FALSE
+#  define DEBAG_MODE TRUE
 # endif
 
 # ifndef SORTING_MODE
@@ -23,6 +23,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <math.h>
 # include "libft.h"
 
 typedef enum e_sort		t_sort;
@@ -105,6 +106,7 @@ void	rrr(t_var *var);
 ** 		sorting.c
 */
 int		bubble_sorting_a(t_var *var, size_t a_size, t_sort mode);
+int		bubble_sorting_b(t_var *var, size_t b_size, t_sort mode);
 int		bubble_2stacks_sorting(t_var *var, size_t s_size, t_sort mode);
 /*
 ** 		sorting1.c
@@ -114,7 +116,7 @@ int		special6_sorting_b(t_var *var, t_sort mode);
 int		fill_stack_b_sorting(t_var *var, size_t s_size, t_sort mode);
 int		radix2_sorting(t_var *var, size_t s_size, t_sort mode);
 /*
-** 		sorting1.c
+** 		sorting2.c
 */
 int		radix2_sorting_optmzd(t_var *var, size_t s_size, t_sort mode);
 /*
