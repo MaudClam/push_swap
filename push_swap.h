@@ -23,7 +23,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <math.h>
 # include "libft.h"
 
 typedef enum e_sort		t_sort;
