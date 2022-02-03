@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	radix2_from_a_to_b(t_var *var, size_t i, size_t *b_size, t_sort mode)
+static void	from_a_to_b(t_var *var, size_t i, size_t *b_size, t_sort mode)
 {
 	if (mode == ASCNDNG)
 	{
@@ -36,7 +36,7 @@ static void	radix2_from_a_to_b(t_var *var, size_t i, size_t *b_size, t_sort mode
 	}
 }
 
-static void	radix2_from_b_to_a(t_var *var, size_t i, size_t *b_size, t_sort mode)
+static void	from_b_to_a(t_var *var, size_t i, size_t *b_size, t_sort mode)
 {
 	if (mode == ASCNDNG)
 	{
@@ -76,11 +76,11 @@ int	radix2_sorting_optmzd(t_var *var, size_t s_size, t_sort mode)
 	{
 		j = s_size - b_size;
 		while (j-- && is_sorted(var->a, mode) != TRUE)
-			radix2_from_a_to_b(var, i, &b_size, mode);
+			from_a_to_b(var, i, &b_size, mode);
 		i++;
 		j = b_size;
 		while (j-- && i < max_bits)
-			radix2_from_b_to_a(var, i, &b_size, mode);
+			from_b_to_a(var, i, &b_size, mode);
 	}
 	while (var->b != NULL)
 		pa(var);
