@@ -62,7 +62,7 @@ int	find_min(int *a, int i)
 	idx = -1;
 	while (i--)
 	{
-		if (a[i] < vol)
+		if (a[i] <= vol)
 		{
 			idx = i;
 			vol = a[i];
