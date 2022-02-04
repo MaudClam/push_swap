@@ -36,16 +36,18 @@ int	push_swap_atoi(const char *str)
 	i = 0;
 	if (str[i] == '\0')
 		error_exit();
-	if (str[i++] == '-')
+	if (str[i] == '-')
+	{
 		sign = -1;
+		i++;
+	}
 	else if (str[i] == '+')
 		i++;
 	while (str[i] != 0 && str[i] >= '0' && str[i] <= '9')
 	{
-		nbr = nbr * 10 + (str[i] - '0');
+		nbr = nbr * 10 + (str[i++] - '0');
 		if ((sign == 1 && nbr > INT_MAX) || (sign == -1 && nbr - 1 > INT_MAX))
 			error_exit();
-		i++;
 	}
 	if (str[i] != '\0')
 		error_exit();
