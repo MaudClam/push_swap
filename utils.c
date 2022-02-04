@@ -34,11 +34,10 @@ int	push_swap_atoi(const char *str)
 	nbr = 0;
 	sign = 1;
 	i = 0;
-	if (str[i] == '-')
-	{
+	if (str[i] == '\0')
+		error_exit();
+	if (str[i++] == '-')
 		sign = -1;
-		i++;
-	}
 	else if (str[i] == '+')
 		i++;
 	while (str[i] != 0 && str[i] >= '0' && str[i] <= '9')
